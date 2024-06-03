@@ -10,7 +10,7 @@ export const colors = {
 export const categories = [
 	{
 		id: "00",
-		category: "All",
+		category: "all",
 	},
 	{
 		id: "01",
@@ -26,194 +26,390 @@ export const categories = [
 	},
 	{
 		id: "04",
+		category: "Dessert",
+	},
+	{
+		id: "05",
+		category: "Turkish",
+	},
+	{
+		id: "06",
 		category: "Asian",
 	},
 	{
-		id: "05",
+		id: "07",
 		category: "Italian",
 	},
-	{
-		id: "06",
-		category: "Desserts",
-	},
-	{
-		id: "07",
-		category: "Vegetarian",
-	},
-	{
-		id: "08",
-		category: "Seafood",
-	},
+	
 ];
 
-export const recipeList = [
+export let recipeList = [
+	
+];
+
+
+export const recipes_DB = [
 	{
-		id: "01",
-		name: "Tuna Tartare",
-		image: require("../assets/images/tuna.png"),
-		rating: "4.2",
-		ingredients: ["Fresh Tuna", "Lime Juice", "Red Onion", "Avocado"],
-		time: "40 mins",
-		difficulty: "Medium",
-		calories: "420 cal",
-		color: "#006A4E",
-		description:
-			"A delightful and refreshing dish featuring fresh tuna mixed with zesty lime juice and the crunch of red onion and avocado.",
-		steps: [
-			"Dice the fresh tuna into small cubes.",
-			"Finely chop the red onion and avocado.",
-			"Mix the tuna, red onion, and avocado in a bowl.",
-			"Drizzle lime juice over the mixture and gently toss.",
-			"Serve chilled and enjoy!",
-		],
+	  id: "01",
+	  name: "Simit",
+	  category: "Breakfast",
+	  ingredients: ["Flour", "Yeast", "Water", "Sesame Seeds"],
+	  time: "2 hours",
+	  difficulty: "Easy",
+	  calories: "250 cal",
+	  color: "#ffd700",
+	  description:
+		"A popular Turkish street food, simit is a circular bread encrusted with sesame seeds, typically enjoyed with tea.",
+	  steps: [
+		"Prepare the dough by mixing flour, yeast, and water. Knead until smooth.",
+		"Divide the dough into small portions and shape them into rings.",
+		"Dip the rings in water and then sesame seeds, ensuring they are well coated.",
+		"Bake the simits in the oven until golden brown and crispy.",
+		"Allow to cool slightly before serving with tea or your favorite spread.",
+	  ],
 	},
 	{
-		id: "02",
-		name: "Lasagna",
-		image: require("../assets/images/lasagna.png"),
-		rating: "3.6",
-		ingredients: [
-			"Lasagna Noodles",
-			"Ground Beef",
-			"Ricotta Cheese",
-			"Tomato Sauce",
-		],
-		time: "40 mins",
-		difficulty: "Medium",
-		calories: "420 cal",
-		color: "#f39c12",
-		description:
-			"A classic Italian comfort food with layers of lasagna noodles, flavorful ground beef, rich ricotta cheese, and tangy tomato sauce.",
-		steps: [
-			"Cook the lasagna noodles according to package instructions.",
-			"Brown the ground beef in a skillet and season with spices.",
-			"Layer the lasagna noodles, beef, ricotta cheese, and tomato sauce in a baking dish.",
-			"Repeat the layers and bake in the oven until bubbly and golden.",
-			"Let it cool slightly before serving.",
-		],
+	  id: "02",
+	  name: "Congee",
+	  category: "Breakfast",
+	  ingredients: ["Rice", "Water", "Ginger", "Scallions"],
+	  time: "1 hour",
+	  difficulty: "Medium",
+	  calories: "200 cal",
+	  color: "#00b894",
+	  description:
+		"A traditional Asian rice porridge, congee is often served as a comforting breakfast dish, customizable with various toppings.",
+	  steps: [
+		"Rinse the rice thoroughly and combine with water in a pot.",
+		"Bring the mixture to a boil, then reduce heat and simmer until the rice breaks down and thickens.",
+		"Add grated ginger and chopped scallions for flavor.",
+		"Serve hot with your choice of toppings, such as boiled eggs, soy sauce, or pickled vegetables.",
+	  ],
 	},
 	{
-		id: "03",
-		name: "Hot Dog",
-		image: require("../assets/images/hotdog.png"),
-		rating: "4.6",
-		ingredients: ["Hot Dog Buns", "Frankfurters", "Ketchup", "Mustard"],
-		time: "40 mins",
-		difficulty: "Medium",
-		calories: "420 cal",
-		color: "#FF0000",
-		// description, steps to prepare
-		description:
-			"A classic American favorite, hot dog buns stuffed with juicy frankfurters, drizzled with ketchup and mustard for that perfect balance of flavors.",
-		steps: [
-			"Grill or heat the frankfurters until they're cooked through.",
-			"Place the frankfurters in hot dog buns.",
-			"Squeeze ketchup and mustard over the frankfurters.",
-			"Serve with your favorite sides and enjoy!",
-		],
+	  id: "03",
+	  name: "Frittata",
+	  category: "Breakfast",
+	  ingredients: ["Eggs", "Cheese", "Vegetables", "Herbs"],
+	  time: "30 mins",
+	  difficulty: "Easy",
+	  calories: "300 cal",
+	  color: "#ffa07a",
+	  description:
+		"An Italian-style omelette, frittata is made with eggs, cheese, and a variety of vegetables, perfect for a hearty breakfast or brunch.",
+	  steps: [
+		"Whisk eggs in a bowl and season with salt and pepper.",
+		"Add grated cheese, chopped vegetables, and herbs to the egg mixture.",
+		"Heat oil in a skillet and pour in the egg mixture.",
+		"Cook until the edges are set, then transfer to the oven to finish cooking.",
+		"Slice and serve the frittata warm, garnished with fresh herbs if desired.",
+	  ],
 	},
 	{
 		id: "04",
-		name: "Manchurian",
-		image: require("../assets/images/manchurian.png"),
-		rating: "3.6",
-		ingredients: ["Cauliflower", "Soy Sauce", "Ginger", "Garlic"],
-		time: "30 mins",
+		name: "Caesar Salad",
+		category: "Lunch",
+		ingredients: ["Romaine Lettuce", "Croutons", "Parmesan Cheese", "Caesar Dressing"],
+		time: "15 mins",
 		difficulty: "Easy",
 		calories: "350 cal",
-		color: "#d35400",
+		color: "#6c5ce7",
 		description:
-			"A popular Indo-Chinese dish featuring crispy cauliflower bites tossed in a flavorful sauce made with soy sauce, ginger, and garlic.",
+		  "A classic salad made with crisp romaine lettuce, crunchy croutons, tangy Parmesan cheese, and a creamy Caesar dressing.",
 		steps: [
-			"Cut the cauliflower into florets and blanch them.",
-			"Prepare a sauce by mixing soy sauce, ginger, and garlic.",
-			"Deep-fry or shallow-fry the cauliflower until crispy.",
-			"Toss the fried cauliflower in the sauce until well coated.",
-			"Garnish with chopped green onions and serve hot.",
+		  "Tear or chop the romaine lettuce into bite-sized pieces and place in a large bowl.",
+		  "Add croutons and grated Parmesan cheese to the bowl.",
+		  "Drizzle Caesar dressing over the salad and toss until well coated.",
+		  "Serve immediately as a light and refreshing lunch option.",
 		],
+	  },
+	  {
+		id: "05",
+		name: "Caprese Panini",
+		category: "Lunch",
+		ingredients: ["Ciabatta Bread", "Tomato", "Mozzarella Cheese", "Basil Pesto"],
+		time: "20 mins",
+		difficulty: "Easy",
+		calories: "450 cal",
+		color: "#6c5ce7",
+		description:
+		  "A delicious grilled sandwich featuring fresh tomatoes, creamy mozzarella cheese, and fragrant basil pesto, all nestled between slices of crispy ciabatta bread.",
+		steps: [
+		  "Slice the ciabatta bread horizontally and spread basil pesto on one side of each slice.",
+		  "Layer sliced tomatoes and mozzarella cheese on top of the pesto-covered bread.",
+		  "Close the sandwich with the other slice of bread and press gently to secure.",
+		  "Heat a panini press or skillet over medium heat and grill the sandwich until golden brown and the cheese is melted.",
+		  "Slice the panini in half and serve hot as a satisfying lunch option.",
+		],
+	  },
+	  // Dinner
+	  {
+		id: "06",
+		name: "Beef Stroganoff",
+		category: "Dinner",
+		ingredients: ["Beef Sirloin", "Onion", "Mushrooms", "Sour Cream"],
+		time: "40 mins",
+		difficulty: "Medium",
+		calories: "500 cal",
+		color: "#fdcb6e",
+		description:
+		  "A comforting dish of tender beef sirloin strips cooked with onions and mushrooms in a rich and creamy sauce, served over a bed of egg noodles.",
+		steps: [
+		  "Slice beef sirloin into thin strips and season with salt and pepper.",
+		  "Sauté onions and mushrooms in a large skillet until softened and browned.",
+		  "Add beef strips to the skillet and cook until browned on all sides.",
+		  "Stir in sour cream and beef broth, then simmer until the sauce thickens.",
+		  "Serve hot over cooked egg noodles, garnished with fresh parsley if desired.",
+		],
+	  },
+	  {
+		id: "07",
+		name: "Chicken Parmesan",
+		category: "Dinner",
+		ingredients: ["Chicken Breast", "Breadcrumbs", "Marinara Sauce", "Mozzarella Cheese"],
+		time: "45 mins",
+		difficulty: "Medium",
+		calories: "400 cal",
+		color: "#fdcb6e",
+		description:
+		  "Tender chicken breasts coated in seasoned breadcrumbs, topped with marinara sauce and melted mozzarella cheese, served over a bed of spaghetti.",
+		steps: [
+		  "Dip chicken breasts in beaten egg, then coat with seasoned breadcrumbs.",
+		  "Fry chicken breasts in a skillet until golden brown and cooked through.",
+		  "Pour marinara sauce over the cooked chicken breasts and top with slices of mozzarella cheese.",
+		  "Bake in the oven until the cheese is melted and bubbly.",
+		  "Serve hot over cooked spaghetti, garnished with grated Parmesan cheese and fresh basil.",
+		],
+	  },
+	  // Desserts
+	  {
+		id: "08",
+		name: "Chocolate Lava Cake",
+		category: "Dessert",
+		ingredients: ["Chocolate", "Butter", "Eggs", "Sugar"],
+		time: "25 mins",
+		difficulty: "Medium",
+		calories: "400 cal",
+		color: "#fab1a0",
+		description:
+		  "A decadent dessert featuring a warm and gooey chocolate center surrounded by a moist and fluffy cake, served with a scoop of vanilla ice cream.",
+		steps: [
+		  "Melt chocolate and butter together in a double boiler until smooth.",
+		  "In a separate bowl, whisk together eggs and sugar until light and frothy.",
+		  "Fold the melted chocolate mixture into the egg mixture until well combined.",
+		  "Pour the batter into greased ramekins and bake in the oven until the edges are set but the center is still gooey.",
+		  "Serve immediately with a scoop of vanilla ice cream on top.",
+		],
+	  },
+	  {
+		id: "09",
+		name: "Tiramisu",
+		category: "Dessert",
+		ingredients: ["Ladyfingers", "Espresso", "Mascarpone Cheese", "Cocoa Powder"],
+		time: "6 hours",
+		difficulty: "Hard",
+		calories: "350 cal",
+		color: "#fab1a0",
+		description:
+		  "An elegant Italian dessert made with layers of coffee-soaked ladyfingers and creamy mascarpone cheese, dusted with cocoa powder for a touch of bitterness.",
+		steps: [
+		  "Dip ladyfingers in espresso and arrange them in a single layer in a serving dish.",
+		  "Spread a layer of mascarpone cheese over the soaked ladyfingers.",
+		  "Repeat the layers until all the ingredients are used up, finishing with a layer of mascarpone cheese on top.",
+		  "Cover and refrigerate the tiramisu for at least 6 hours, or overnight, to allow the flavors to meld together.",
+		  "Before serving, dust the top of the tiramisu with cocoa powder for a finishing touch.",
+		],
+	  },
+	{
+	  id: "10",
+	  name: "Köfte",
+	  category: "Turkish",
+	  ingredients: ["Ground Meat", "Onion", "Bread Crumbs", "Spices"],
+	  time: "45 mins",
+	  difficulty: "Medium",
+	  calories: "350 cal",
+	  color: "#d63031",
+	  description:
+		"Turkish köfte are seasoned meatballs or patties, typically made with ground beef or lamb and served with rice, salad, and bread.",
+	  steps: [
+		"Mix together ground meat, finely chopped onions, bread crumbs, and spices in a bowl.",
+		"Form the mixture into small balls or patties, shaping them with your hands.",
+		"Heat oil in a skillet and cook the köfte until browned and cooked through.",
+		"Serve hot with rice, salad, and bread, accompanied by yogurt or sauce if desired.",
+	  ],
+	},
+	{
+	  id: "11",
+	  name: "Dolma",
+	  category: "Turkish",
+	  ingredients: ["Grape Leaves", "Rice", "Pine Nuts", "Spices"],
+	  time: "1 hour 30 mins",
+	  difficulty: "Hard",
+	  calories: "200 cal",
+	  color: "#d64031",
+	  description:
+		"Dolma, a traditional Turkish dish, consists of grape leaves stuffed with a savory mixture of rice, pine nuts, and spices, often served as an appetizer or main course.",
+	  steps: [
+		"Prepare the filling by combining cooked rice, pine nuts, herbs, and spices.",
+		"Place a grape leaf on a flat surface and add a spoonful of the filling in the center.",
+		"Fold the sides of the grape leaf over the filling and roll tightly into a cylindrical shape.",
+		"Repeat with the remaining grape leaves and filling, arranging the dolmas in a pot.",
+		"Cover with water, place a plate on top to keep them submerged, and simmer until the rice is cooked and the flavors meld together.",
+		"Serve hot or cold, garnished with lemon wedges and yogurt if desired.",
+	  ],
+	},
+	{
+	  id: "12",
+	  name: "Kimchi Fried Rice",
+	  category: "Asian",
+	  ingredients: ["Cooked Rice", "Kimchi", "Eggs", "Vegetables"],
+	  time: "25 mins",
+	  difficulty: "Easy",
+	  calories: "350 cal",
+	  color: "#00cec9",
+	  description:
+		"A flavorful Korean dish, kimchi fried rice is made by stir-frying cooked rice with kimchi, vegetables, and often topped with a fried egg.",
+	  steps: [
+		"Heat oil in a skillet and add chopped kimchi along with its juices.",
+		"Add cooked rice and stir-fry until heated through and well combined with the kimchi.",
+		"Make a well in the center of the skillet and crack an egg into it. Cook until the egg is set to your liking.",
+		"Stir everything together, season with soy sauce or gochujang for extra flavor, and serve hot.",
+	  ],
+	},
+	{
+	  id: "13",
+	  name: "Bibimbap",
+	  category: "Asian",
+	  ingredients: ["Cooked Rice", "Assorted Vegetables", "Beef", "Fried Egg"],
+	  time: "40 mins",
+	  difficulty: "Medium",
+	  calories: "450 cal",
+	  color: "#01dec9",
+	  description:
+		"A popular Korean mixed rice dish, bibimbap features a colorful array of vegetables, protein, and a fried egg, served with spicy gochujang sauce.",
+	  steps: [
+		"Prepare various vegetables such as spinach, bean sprouts, carrots, and mushrooms, sautéing each separately until tender.",
+		"Season thinly sliced beef with soy sauce, garlic, and sesame oil, then stir-fry until cooked.",
+		"Arrange cooked rice in a bowl and top with the cooked vegetables and beef.",
+		"Fry an egg until the yolk is still runny, then place it on top of the rice.",
+		"Serve immediately with gochujang sauce on the side for mixing.",
+	  ],
+	},
+	{
+	  id: "14",
+	  name: "Margherita Pizza",
+	  category: "Italian",
+	  ingredients: ["Pizza Dough", "Tomatoes", "Mozzarella Cheese", "Basil"],
+	  time: "1 hour",
+	  difficulty: "Hard",
+	  calories: "400 cal",
+	  color: "#ff7675",
+	  description:
+		"A classic Italian pizza topped with fresh tomatoes, mozzarella cheese, basil leaves, and a drizzle of olive oil, representing the colors of the Italian flag.",
+	  steps: [
+		"Preheat your oven and roll out the pizza dough into a round shape.",
+		"Spread a thin layer of tomato sauce over the dough, leaving a border around the edges.",
+		"Arrange slices of fresh mozzarella cheese and tomato rounds on top of the sauce.",
+		"Sprinkle with torn basil leaves and a drizzle of olive oil.",
+		"Bake in the oven until the crust is golden brown and the cheese is bubbly and melted.",
+		"Slice the pizza and serve hot, garnished with additional basil leaves if desired.",
+	  ],
+	},
+	{
+	  id: "15",
+	  name: "Spaghetti Carbonara",
+	  category: "Italian",
+	  ingredients: ["Spaghetti", "Pancetta", "Eggs", "Parmesan Cheese"],
+	  time: "30 mins",
+	  difficulty: "Medium",
+	  calories: "500 cal",
+	  color: "#fd5675",
+	  description:
+		"A classic Roman pasta dish, spaghetti carbonara is made with pancetta or guanciale, eggs, cheese, and black pepper, resulting in a creamy and savory sauce.",
+	  steps: [
+		"Cook spaghetti in a pot of salted boiling water until al dente, then drain, reserving some pasta water.",
+		"Cook pancetta in a skillet until crispy, then remove from heat.",
+		"In a bowl, whisk together eggs, grated Parmesan cheese, and black pepper.",
+		"Add the cooked spaghetti to the skillet with the pancetta, then pour in the egg mixture, tossing quickly to coat the pasta and create a creamy sauce.",
+		"If needed, add reserved pasta water to achieve desired consistency.",
+		"Serve immediately, garnished with additional cheese and black pepper.",
+	  ],
+	},
+  ];
+  
+
+export let imgList = [
+	{
+		id: "01",
+		image: require("../assets/images/simit.png"),
+		
+	},
+	{
+		id: "02",
+		image: require("../assets/images/congee.png"),
+	},
+	{
+		id: "03",
+		image: require("../assets/images/frittata.png"),
+		
+	},
+	{
+		id: "04",
+		image: require("../assets/images/caesarsalad.png"),
+		
 	},
 	{
 		id: "05",
-		name: "Chicken",
-		image: require("../assets/images/chicken.png"),
-		rating: "2.2",
-		ingredients: ["Chicken Breasts", "Salt", "Black Pepper", "Olive Oil"],
-		time: "45 mins",
-		difficulty: "Medium",
-		calories: "450 cal",
-		color: "#8d4004",
-		description:
-			"A succulent chicken dish seasoned with a blend of salt and black pepper, then cooked to perfection with a drizzle of olive oil.",
-		steps: [
-			"Preheat the oven to the specified temperature.",
-			"Season the chicken breasts with salt and black pepper.",
-			"Heat olive oil in a skillet over medium-high heat.",
-			"Sear the chicken breasts on both sides until golden brown.",
-			"Transfer the chicken to the oven and bake until cooked through.",
-			"Serve hot and enjoy your flavorful chicken!",
-		],
+		image: require("../assets/images/capresepanini.png"),
+		
+		
 	},
 	{
 		id: "06",
-		name: "Cupcakes",
-		image: require("../assets/images/cupcakes.png"),
-		rating: "5.0",
-		ingredients: ["Flour", "Sugar", "Eggs", "Butter"],
-		time: "60 mins",
-		difficulty: "Medium",
-		calories: "200 cal",
-		description:
-			"Delightful cupcakes made with a perfect blend of flour, sugar, eggs, and butter, perfect for any occasion.",
-		steps: [
-			"Preheat the oven to the specified temperature.",
-			"Prepare the cupcake batter by mixing the ingredients together.",
-			"Line a muffin tin with cupcake liners.",
-			"Fill each liner with batter and bake in the oven.",
-			"Let the cupcakes cool, then frost and decorate as desired.",
-			"Indulge in these sweet treats and savor the flavor!",
-		],
+		image: require("../assets/images/beefstroganoff.png"),
+		
+		
 	},
 	{
 		id: "07",
-		name: "Curry",
-		image: require("../assets/images/curry.png"),
-		rating: "4.8",
-		ingredients: ["Meat", "Curry Powder", "Coconut Milk", "Spices"],
-		time: "55 mins",
-		difficulty: "Hard",
-		calories: "550 cal",
-		color: "#d35400",
-
-		description:
-			"A rich and aromatic curry dish featuring tender pieces of meat cooked in a flavorful blend of curry powder, coconut milk, and spices.",
-		steps: [
-			"Marinate the meat with spices and let it sit for a while.",
-			"Heat oil in a large pot and sauté the marinated meat until browned.",
-			"Add curry powder and stir to coat the meat.",
-			"Pour in coconut milk and bring to a simmer.",
-			"Cover and let the curry simmer until the meat is tender and the flavors meld.",
-			"Serve the curry with rice or bread and enjoy the deliciousness!",
-		],
+		image: require("../assets/images/chickenparmesan.png"),
+		
 	},
 	{
 		id: "08",
-		name: "Ramen",
-		image: require("../assets/images/ramen-org.png"),
-		rating: "4.2",
-		ingredients: ["Ramen Noodles", "Soy Sauce", "Eggs", "Vegetables"],
-		time: "35 mins",
-		difficulty: "Easy",
-		calories: "400 cal",
-		color: "#f96163",
-		description:
-			"A comforting bowl of ramen featuring slurp-worthy noodles, a savory soy sauce-based broth, tender vegetables, and perfectly boiled eggs.",
-		steps: [
-			"Boil the ramen noodles according to package instructions.",
-			"In a pot, bring water to a simmer and add soy sauce for the broth.",
-			"Add chopped vegetables and let them cook until tender.",
-			"Boil eggs to your desired doneness, then peel and slice them.",
-			"Assemble the ramen bowls by placing cooked noodles, vegetables, and egg slices.",
-			"Ladle the hot broth over the ingredients and get ready to enjoy your homemade ramen!",
-		],
+		image: require("../assets/images/chocolatelavacake.png"),
 	},
+	{
+		id: "09",
+		image: require("../assets/images/tiramisu.png"),
+	},
+	{
+		id: "10",
+		image: require("../assets/images/kofte.png"),
+	},
+	{
+		id: "11",
+		image: require("../assets/images/dolma.png"),
+	},
+	{
+		id: "12",
+		image: require("../assets/images/kimchifriedrice.png"),
+	},
+	{
+		id: "13",
+		image: require("../assets/images/bibimbap.png"),
+	},
+	{
+		id: "14",
+		image: require("../assets/images/margheritapizza.png"),
+	},
+	{
+		id: "15",
+		image: require("../assets/images/spaghetticarbonara.png"),
+	},
+];
+
+export let favRecipeList = [
+	
+	
 ];

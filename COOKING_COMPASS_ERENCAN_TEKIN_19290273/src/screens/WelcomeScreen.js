@@ -4,12 +4,12 @@ import { FontAwesome } from "@expo/vector-icons";
 
 const WelcomeScreen = ({ navigation }) => {
 
-	console.log("RECIPE")
+	//console.log("RECIPE")
 	useEffect(() => {
 		const unsubscribe = navigation.addListener("focus", () => {
 			const { setMyGlobalVariable } = require('../Global');
 			//setMyGlobalVariable("all");
-			console.log("You are back");
+			//console.log("You are back");
 		});
 
 		return unsubscribe;
@@ -17,19 +17,16 @@ const WelcomeScreen = ({ navigation }) => {
 
 
 	return (
-		<View style={{ flex: 1, alignItems: "center" }}>
+		<View style={{ flex: 1, alignItems: "center", backgroundColor: '#8bca84' }}>
 
-			<SafeAreaView style={{ flexDirection: "row", marginHorizontal: 16 , marginVertical: 50 }}>
-				<Pressable style={{ flex: 1 }} onPress={() => navigation.goBack()}>
-					<FontAwesome name={"arrow-circle-left"} size={28} color="white" />
-				</Pressable>
-			</SafeAreaView>
+			
 			<Image
-				//source={require("../../assets/images/welcome1.png")}
-				style={{ marginTop: 30 }}
+				source={require("../../assets/images/main.png")}
+				style={{ marginTop: -30 }}
 			/>
+			
 
-			<Text style={{ color: "#f96163", fontSize: 22, fontWeight: "bold" }}>
+			<Text style={{ color: "#fff", fontSize: 22, fontWeight: "bold" }}>
 				Recipes Just For You
 			</Text>
 
@@ -42,13 +39,13 @@ const WelcomeScreen = ({ navigation }) => {
 					marginBottom: 40,
 				}}
 			>
-				Your Cooking Compass
+				Cooking Compass
 			</Text>
 
 			<TouchableOpacity
-				onPress={() => navigation.navigate("RecipeList")}
+				onPress={() => navigation.navigate("SignIn")}
 				style={{
-					backgroundColor: "#f96163",
+					backgroundColor: "#5bb450",
 					borderRadius: 18,
 					paddingVertical: 18,
 					width: "80%",
@@ -65,4 +62,6 @@ const WelcomeScreen = ({ navigation }) => {
 
 export default WelcomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+
+});

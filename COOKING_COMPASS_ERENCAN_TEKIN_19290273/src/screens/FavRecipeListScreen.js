@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import Header from "../components/Header";
-import SearchFilter from "../components/SearchFilter";
-import CategoriesFilter from "../components/CategoriesFilter";
-import RecipeCard from "../components/RecipeCard";
+import FavSearchFilter from "../components/FavSearchFilter";
+import FavCategoriesFilter from "../components/FavCategoriesFilter";
+import FavRecipeCard from "../components/FavRecipeCard";
 import { useNavigation } from "@react-navigation/native";
-import { FontAwesome, Icon } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
-const RecipeListScreen = () => {
+const FavRecipeListScreen = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchInput, setSearchInput] = useState("");
-  const { getFavMyGlobalVariable, setMyFavGlobalVariable, getUsername } = require('../Global');
-  const { setMyFavGlobalSearchVariable } = require('../Global');
+  const { getSelectedFavCategory, setSelectedFavCategory } = require('../Global');
+
+
 
   const navigation = useNavigation();
 
@@ -19,19 +20,16 @@ const RecipeListScreen = () => {
     setSelectedCategory(categoryId);
     //console.log(">>",selectedCategory);
     //console.log(">=" , categoryId);
-    const { getMyGlobalVariable, setMyGlobalVariable } = require('../Global');
-  
-    setMyGlobalVariable(categoryId);
-    
-  /*
+    const { getFavMyGlobalVariable, setMyFavGlobalVariable } = require('../Global');
     if(categoryId != "00"){
-    setMyGlobalVariable(categoryId)
+        setMyFavGlobalVariable(categoryId)
     }
     else{
-      console.log("In Else")
-      setMyGlobalVariable("all")
-    }*/
+      //console.log("In Else")
+      setMyFavGlobalVariable("all")
+    }
   };
+
 
 
   const handleSearch = (text) => {
@@ -41,38 +39,25 @@ const RecipeListScreen = () => {
 
   return (
 	
-    
     <SafeAreaView style={{ flex: 1, marginHorizontal: 16, marginVertical: 50 }}>
-      <TouchableOpacity style={styles.button2} onPress={
-        () => {
-          navigation.navigate("SignIn")
-        }
-      }>
-      <Text style={styles.buttonText}>Sign out</Text>
-              
-       </TouchableOpacity>
       {/* render header */}
       <View style={styles.container}>
-
         <View style={styles.header}>
-            <Header headerText={"Hi, " + (getUsername()[0].length <= 10 ? getUsername()[0] : getUsername()[0].substring(0,10)+"...")} /*headerIcon={"bell-o"}*/ />
+            <Header headerText={"Favourites "} /*headerIcon={"bell-o"}*/ />
             <TouchableOpacity style={styles.button} onPress={
-              () => {
-                navigation.navigate("FavRecipeList")
-                setMyFavGlobalVariable('all')
-                setMyFavGlobalSearchVariable('')
-              }
-              }>
-              <Text style={styles.buttonText}>Favourites</Text>
-              
+              () => { 
+                navigation.goBack()
+                setSelectedFavCategory(selectedCategory);
+                //console.log("???????" + selectedCategory);
+              }}>
+                <FontAwesome name={"arrow-circle-left"} size={28} color="gray" />
             </TouchableOpacity>
-
         </View> 
       </View>
       
 
       {/* Search Filter */}
-      <SearchFilter icon="search" placeholder={"enter your fav recipe"} onSearch={handleSearch}/>
+      <FavSearchFilter icon="search" placeholder={"enter your fav recipe"} onSearch={handleSearch}/>
 
 
       {/* Categories filter */}
@@ -81,7 +66,7 @@ const RecipeListScreen = () => {
         {/* Categories list */}
         {/*console.log("In here")*/}
         
-        <CategoriesFilter
+        <FavCategoriesFilter
           onSelectCategory={handleCategorySelect}
           selectedCategory={selectedCategory}
         />
@@ -92,11 +77,11 @@ const RecipeListScreen = () => {
         <Text style={{ fontSize: 22, fontWeight: "bold" }}>Recipes</Text>
         {/* Recipes list */}
         {selectedCategory ? (
-          <RecipeCard category={selectedCategory} searchInput={searchInput} />
+          <FavRecipeCard category={selectedCategory} searchInput={searchInput} />
         ) : (
           <>
             {/* Show all recipes */}
-            <RecipeCard category={"all"} searchInput={searchInput} />
+            <FavRecipeCard category={"all"} searchInput={searchInput} />
           </>
         )}
       </View>
@@ -104,7 +89,7 @@ const RecipeListScreen = () => {
   );
 };
 
-export default RecipeListScreen;
+export default FavRecipeListScreen;
 
 const styles = StyleSheet.create({
   container:{
@@ -123,19 +108,6 @@ const styles = StyleSheet.create({
     position:'absolute',
     right:3,
     top:-10,
-  },
-  button2:{
-    backgroundColor:"white",
-    paddingHorizontal:15,
-    paddingVertical:10,
-    borderRadius:15,
-    position:'center',
-    alignItems:"center",
-    //right:240,
-    //top:-20,
-    width: '100%',
-    justifyContent: 'center',
-    flexDirection : 'row'
   },
   header:{
     alignItems:"center",

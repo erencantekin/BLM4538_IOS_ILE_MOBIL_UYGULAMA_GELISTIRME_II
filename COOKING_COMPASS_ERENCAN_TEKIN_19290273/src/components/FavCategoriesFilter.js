@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text, View, TouchableOpacity } from "react-nati
 import { categories, colors } from "../Constant";
 import { useIsFocused } from "@react-navigation/native";
 
-const CategoriesFilter = ({ onSelectCategory, selectedCategory }) => {
+const FavCategoriesFilter = ({ onSelectCategory, selectedCategory }) => {
   const [selectedId, setSelectedId] = useState(null);
   const isFocused = useIsFocused();
 
@@ -14,7 +14,6 @@ const CategoriesFilter = ({ onSelectCategory, selectedCategory }) => {
   const handleCategorySelect = (categoryId) => {
     onSelectCategory(categoryId);
     setSelectedId(categoryId);
-    //console.log("categoriesFilter ",categoryId);
   };
 
   return (
@@ -51,7 +50,7 @@ const CategoriesFilter = ({ onSelectCategory, selectedCategory }) => {
   );
 };
 
-export default CategoriesFilter;
+export default FavCategoriesFilter;
 
 const styles = StyleSheet.create({
   categoryItem: {

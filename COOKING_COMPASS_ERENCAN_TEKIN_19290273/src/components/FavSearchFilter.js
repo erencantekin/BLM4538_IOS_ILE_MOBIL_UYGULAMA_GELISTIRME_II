@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 
 
-const SearchFilter = ({ icon, placeholder, onSearch }) => {
+const FavSearchFilter = ({ icon, placeholder, onSearch }) => {
   const [searchText, setSearchText] = useState(""); // State to hold search text
 
   const handleSearch = (text) => {
@@ -12,8 +12,8 @@ const SearchFilter = ({ icon, placeholder, onSearch }) => {
 	//console.log("Search Text:", text); // Print search text to console
 
     onSearch(text);
-	const { setMyGlobalSearchVariable } = require('../Global');
-	setMyGlobalSearchVariable(text);
+	const { setMyFavGlobalSearchVariable } = require('../Global');
+	setMyFavGlobalSearchVariable(text);
 	
   };
   //console.log("IN SEARCH");
@@ -44,7 +44,7 @@ const SearchFilter = ({ icon, placeholder, onSearch }) => {
   );
 };
 
-export default SearchFilter;
+export default FavSearchFilter;
 
 const styles = StyleSheet.create({});
 
