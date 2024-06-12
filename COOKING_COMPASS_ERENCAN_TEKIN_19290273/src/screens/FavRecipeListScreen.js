@@ -26,7 +26,7 @@ const FavRecipeListScreen = () => {
     }
     else{
       //console.log("In Else")
-      setMyFavGlobalVariable("all")
+      setMyFavGlobalVariable("All")
     }
   };
 
@@ -57,7 +57,7 @@ const FavRecipeListScreen = () => {
       
 
       {/* Search Filter */}
-      <FavSearchFilter icon="search" placeholder={"enter your fav recipe"} onSearch={handleSearch}/>
+      <FavSearchFilter icon="search" placeholder={"Enter your favourite recipe"} onSearch={handleSearch}/>
 
 
       {/* Categories filter */}
@@ -81,7 +81,7 @@ const FavRecipeListScreen = () => {
         ) : (
           <>
             {/* Show all recipes */}
-            <FavRecipeCard category={"all"} searchInput={searchInput} />
+            <FavRecipeCard category={"All"} searchInput={searchInput} />
           </>
         )}
       </View>

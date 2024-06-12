@@ -10,7 +10,7 @@ export const colors = {
 export const categories = [
 	{
 		id: "00",
-		category: "all",
+		category: "All",
 	},
 	{
 		id: "01",

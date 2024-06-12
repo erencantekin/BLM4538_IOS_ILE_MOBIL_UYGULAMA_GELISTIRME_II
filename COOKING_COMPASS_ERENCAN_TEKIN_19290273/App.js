@@ -9,17 +9,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBXw8v3QCGGnhoby9AjMrpDnNCnH3crG6Y",
-  authDomain: "authapp-a8326.firebaseapp.com",
-  projectId: "authapp-a8326",
-  storageBucket: "authapp-a8326.appspot.com",
-  messagingSenderId: "73279438611",
-  appId: "1:73279438611:web:2288784c80103eff5324e6",
-  measurementId: "G-YJ758KQLPB"
+  apiKey: "AIzaSyCIPH4QFVUlKskHGUsefUSfb3H9IMrgujk",
+  authDomain: "blm4538-ios2-db.firebaseapp.com",
+  projectId: "blm4538-ios2-db",
+  storageBucket: "blm4538-ios2-db.appspot.com",
+  messagingSenderId: "137091528917",
+  appId: "1:137091528917:web:f7bf05ecc87d0c5ba3ca5c",
+  measurementId: "G-T6MV91KJ9L"
 };
-
-
 
 
 
@@ -50,5 +49,5 @@ export const FIREBASE_AUTH = initializeAuth(FIREBASE_APP, {
   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
 });
 setFIREBASEGLOBAL(FIREBASE_AUTH);
-//getAuth(FIREBASE_APP);
+
 export const FIRESTORE_DB = getFirestore(FIREBASE_APP);

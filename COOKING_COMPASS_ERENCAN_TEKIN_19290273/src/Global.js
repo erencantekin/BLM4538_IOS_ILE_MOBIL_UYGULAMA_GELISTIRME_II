@@ -1,6 +1,6 @@
 // globals.js
-let myGlobalVariable = 'all';
-let myFavGlobalVariable = 'all';
+let myGlobalVariable = 'All';
+let myFavGlobalVariable = 'All';
 let myGlobalSearchVariable = '';
 let myFavGlobalSearchVariable = '';
 let username = [];

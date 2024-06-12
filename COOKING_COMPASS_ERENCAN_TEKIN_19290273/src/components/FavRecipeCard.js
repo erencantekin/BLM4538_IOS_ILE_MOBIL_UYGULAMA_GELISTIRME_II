@@ -12,7 +12,7 @@ const FavRecipeCard = () => {
 	useEffect(() => {
 		const unsubscribe = navigation.addListener("focus", () => {
 			const { setMyFavGlobalVariable } = require('../Global');
-			//setMyFavGlobalVariable("all");
+			//setMyFavGlobalVariable("All");
 			//console.log("You are back");
 		});
 
@@ -21,7 +21,7 @@ const FavRecipeCard = () => {
 
 	const { getMyFavGlobalSearchVariable, getMyFavGlobalVariable } = require('../Global');
 	//console.log("----"+getMyFavGlobalVariable());
-	let filteredRecipeList = getMyFavGlobalVariable() === "all" 
+	let filteredRecipeList = getMyFavGlobalVariable() === "All" 
 		? favRecipeList 
 		: favRecipeList.filter(item => item.category === getMyFavGlobalVariable());
 

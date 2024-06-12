@@ -8,7 +8,7 @@ const WelcomeScreen = ({ navigation }) => {
 	useEffect(() => {
 		const unsubscribe = navigation.addListener("focus", () => {
 			const { setMyGlobalVariable } = require('../Global');
-			//setMyGlobalVariable("all");
+			//setMyGlobalVariable("All");
 			//console.log("You are back");
 		});
 
@@ -22,7 +22,7 @@ const WelcomeScreen = ({ navigation }) => {
 			
 			<Image
 				source={require("../../assets/images/main.png")}
-				style={{ marginTop: -30 }}
+				style={{ marginTop: -50 }}
 			/>
 			
 

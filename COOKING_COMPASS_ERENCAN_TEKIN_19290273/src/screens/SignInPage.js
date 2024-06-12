@@ -1,4 +1,4 @@
-import { View, Text,Button,TextInput, StyleSheet, Image } from 'react-native';
+import { View, Text,Button,TextInput, StyleSheet, Image , TouchableOpacity} from 'react-native';
 import React, { useCallback, useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
@@ -6,13 +6,18 @@ import { getDoc, getFirestore, doc, setDoc, updateDoc } from 'firebase/firestore
 {/*import { KeyboardAvoidingView } from 'react-native-web';*/}
 import { colors, favRecipeList, recipeList } from "../Constant";
 import { getEmail, getFirebaseAUTH, getUsername, setEmail, setMyGlobalSearchVariable } from '../Global';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const SignInScreen = () => {
     const [username, setUsername] = useState(null);
     const [signInEmail, setSignInEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [isLoaded, setLoaded] = useState(null);
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     const { setFIREBASEGLOBAL,getFIREBASEGLOBAL } = require('../Global');
 
@@ -50,11 +55,11 @@ const SignInScreen = () => {
 
             const { setMyGlobalVariable, setMyFavGlobalVariable,setMyGlobalSearchVariable,setMyFavGlobalSearchVariable,setSelectedFavCategory, setEmail } = require('../Global');
 
-            setMyGlobalVariable('all');
-            setMyFavGlobalVariable('all');
+            setMyGlobalVariable('All');
+            setMyFavGlobalVariable('All');
             setMyGlobalSearchVariable('');
             setMyFavGlobalSearchVariable('');
-            setSelectedFavCategory('all');
+            setSelectedFavCategory('All');
 
             const { fetchItemListFromFirestore, addItemListToFirestore } = require('../FirebaseDataOPs');
 
@@ -94,7 +99,7 @@ const SignInScreen = () => {
 
             <Image
 				source={require("../../assets/images/main.png")}
-				style={{ marginTop: -500 }}
+				style={{ marginTop: -400 }}
 			/>
             <Text
 				style={{
@@ -110,8 +115,12 @@ const SignInScreen = () => {
 			</Text>
             
             <TextInput value={signInEmail} style={styles.input} placeholder='Email' autoCapitalize="none" onChangeText={(text) => setSignInEmail(text)}></TextInput>
-            <TextInput secureTextEntry ={true} value={password} style={styles.input} placeholder='Password' autoCapitalize="none" onChangeText={(text) => setPassword(text)}></TextInput>
-        
+            <View style={styles.InputContainer}>
+            <TextInput secureTextEntry ={!showPassword} value={password} style={styles.inputPass} placeholder='Password' autoCapitalize="none" onChangeText={(text) => setPassword(text)}></TextInput>
+            <TouchableOpacity onPress = { togglePasswordVisibility} style={styles.icon}>
+                <Icon name={showPassword ? 'eye-off' : 'eye'} size={24} color="green"></Icon>
+            </TouchableOpacity>
+            </View>
             { isLoaded ?( unnecessary = true
             ):( <>
                 <View style={styles.buttonSpacing} />
@@ -135,10 +144,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
         
     },
+    InputContainer:{
+        flexDirection: 'row',
+        //paddingHorizontal: 10,
+        marginBottom: 10,
+        alignItems:'center'
+    },
     input: {
+        
         marginVertical: 4,
         height: 50,
-        borderWidth: 1,
+        borderWidth: 0,
+        borderRadius: 4,
+        padding: 10,
+        backgroundColor: '#fff'
+    },
+    inputPass: {
+        flex : 1,
+        marginVertical: 4,
+        height: 50,
+        borderWidth: 0,
         borderRadius: 4,
         padding: 10,
         backgroundColor: '#fff'

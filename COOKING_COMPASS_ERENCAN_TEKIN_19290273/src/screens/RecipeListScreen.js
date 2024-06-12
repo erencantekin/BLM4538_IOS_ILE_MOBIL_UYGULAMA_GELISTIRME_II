@@ -29,7 +29,7 @@ const RecipeListScreen = () => {
     }
     else{
       console.log("In Else")
-      setMyGlobalVariable("all")
+      setMyGlobalVariable("All")
     }*/
   };
 
@@ -59,7 +59,7 @@ const RecipeListScreen = () => {
             <TouchableOpacity style={styles.button} onPress={
               () => {
                 navigation.navigate("FavRecipeList")
-                setMyFavGlobalVariable('all')
+                setMyFavGlobalVariable('All')
                 setMyFavGlobalSearchVariable('')
               }
               }>
@@ -72,7 +72,7 @@ const RecipeListScreen = () => {
       
 
       {/* Search Filter */}
-      <SearchFilter icon="search" placeholder={"enter your fav recipe"} onSearch={handleSearch}/>
+      <SearchFilter icon="search" placeholder={"Enter your favourite recipe"} onSearch={handleSearch}/>
 
 
       {/* Categories filter */}
@@ -96,7 +96,7 @@ const RecipeListScreen = () => {
         ) : (
           <>
             {/* Show all recipes */}
-            <RecipeCard category={"all"} searchInput={searchInput} />
+            <RecipeCard category={"All"} searchInput={searchInput} />
           </>
         )}
       </View>

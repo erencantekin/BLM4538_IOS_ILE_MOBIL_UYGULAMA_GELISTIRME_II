@@ -12,7 +12,7 @@ const RecipeCard = () => {
 	useEffect(() => {
 		const unsubscribe = navigation.addListener("focus", () => {
 			const { setMyGlobalVariable } = require('../Global');
-			//setMyGlobalVariable("all");
+			//setMyGlobalVariable("All");
 			//console.log("You are back");
 		});
 
@@ -22,7 +22,7 @@ const RecipeCard = () => {
 	const { getMyGlobalSearchVariable, getMyGlobalVariable } = require('../Global');
 	//console.log("------"+getMyGlobalVariable());
 	
-	let filteredRecipeList = getMyGlobalVariable() === "all" 
+	let filteredRecipeList = getMyGlobalVariable() === "All" 
 		? recipeList 
 		: recipeList.filter(item => item.category === getMyGlobalVariable());
 
