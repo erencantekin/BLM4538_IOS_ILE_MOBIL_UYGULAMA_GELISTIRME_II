@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'fire
 import { useNavigation } from "@react-navigation/native";
 import { getDoc, getFirestore, doc, setDoc, updateDoc } from 'firebase/firestore';
 {/*import { KeyboardAvoidingView } from 'react-native-web';*/}
-import { colors, recipeList, recipes_DB, favRecipeList } from "../Constant";
+import { colors, recipeList, favRecipeList } from "../Constant";
 import { getUsername, setMyGlobalSearchVariable } from '../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -53,7 +53,7 @@ const SignUpScreen = () => {
                 const { setUsername } = require('../Global');
 
                 setUsername([username])
-                addItemListToFirestore(signUpemail,"data", recipes_DB)
+                
                 
                 setEmail(signUpemail);
                 //console.log(getEmail());
@@ -62,7 +62,7 @@ const SignUpScreen = () => {
                 favRecipeList.splice(0, favRecipeList.length); // reset
 
 
-                const tempRecipeList = await fetchItemListFromFirestore(signUpemail, "data");
+                const tempRecipeList = await fetchItemListFromFirestore("MAIN_DATA", "data");
                 for(let index = 0; index < tempRecipeList.length; index++){
                     recipeList.push(tempRecipeList[index]);
                 }

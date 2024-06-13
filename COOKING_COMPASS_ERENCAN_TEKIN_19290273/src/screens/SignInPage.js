@@ -73,7 +73,7 @@ const SignInScreen = () => {
             //console.log(getUsername()[0]);
             setEmail(signInEmail);
             //console.log(getEmail());
-            const tempRecipeList = await fetchItemListFromFirestore(signInEmail, "data");
+            const tempRecipeList = await fetchItemListFromFirestore("MAIN_DATA", "data");
             for(let index = 0; index < tempRecipeList.length; index++){
                 recipeList.push(tempRecipeList[index]);
             }
